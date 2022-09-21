@@ -1,6 +1,6 @@
 <html xmlns:th="https://wwww.thymeleaf.org">
 <head>
-	<title>Radio Stations</title>
+	<title>Radio Density - by Jonathan Saddler</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link th:href="@{/styles/semantic.min.css}" rel="stylesheet" />
     <link th:href="@{/styles/universal.css}" rel="stylesheet"/>
@@ -14,24 +14,27 @@
       "newScore": 12,
       "gameId": "Scrabble"
     }, -->
-	<h1>Radio Stations</h1>
 	<div class="viewer ui container">
 	<div class="ui grid">
 		<div class="twelve wide column">
-			<h2 class="subtitle">All Stations</h2>
-			<table class="ui celled table">
+			<h2 class="subtitle" th:text="${radsets.listingsName}">listingsName</h2>
+			<div class="ui horizontal list">
+				<div class="item"><a th:href="@{/}">All Stations</a></div>
+				<div class="item"><a th:href="@{/country}">Country Stations</a></div>
+				<div class="item"><a th:href="@{/christian}">Christian Stations</a></div>
+			</div>
 			<!--  
 			(1 , 'SmileFM', 88.1,        'Christian/Inspirational')
 			(radio_id, call_name, fm_freq, category)
 			 -->
-			
+			<table class="ui celled table">
 			<tr>
 				<th>Call Name</th> <th>FM Frequency</th> <th>Category</th>
 			</tr>
-			<tr th:each="rad: ${radsets.record}">
-				<td th:each="person : ${turn}" th:text="${person.score}">
-					Score
-				</td>
+			<tr th:each="rad: ${radsets.listings}">
+				<td th:text="${rad.callName}">callName</td>
+				<td th:text="${rad.fmFreq}">fmFreq</td>
+				<td th:text="${rad.category}">category</td>
 			</tr>
 				<!-- 
 				<tr>

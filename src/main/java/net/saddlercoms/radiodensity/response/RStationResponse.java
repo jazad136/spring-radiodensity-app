@@ -1,17 +1,13 @@
 package net.saddlercoms.radiodensity.response;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 import net.saddlercoms.radiodensity.db.model.RStation;
 
 public class RStationResponse {
 
-	@Id 
-	@Column(name="radio_id")  private Long radioId;
-	@Column(name="call_name") private String callName;
-	@Column(name="fm_freq")   private Double fmFreq;
-	@Column(name="category")  private String category;
+	private Long radioId;
+	private String callName;
+	private Double fmFreq;
+	private String category;
 	
 	public RStationResponse() { } 
 	
