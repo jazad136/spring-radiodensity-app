@@ -1,0 +1,70 @@
+<html xmlns:th="https://wwww.thymeleaf.org">
+<head>
+	<title>Radio Density - by Jonathan Saddler</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/styles/semantic.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/universal.css}" rel="stylesheet"/>
+</head>
+<body>
+	<!-- "recordings": [
+    {
+      "order": 1, 
+      "personNickname": "Jon",
+      "personName":"Jonathan Saddler",
+      "newScore": 12,
+      "gameId": "Scrabble"
+    }, -->
+	<div class="viewer ui container">
+	<div class="ui grid">
+		<div class="twelve wide column">
+			<h2 class="subtitle" th:text="${radsets.listingsName}">listingsName</h2>
+			<div class="ui horizontal list">
+				<div class="item"><a th:href="@{/city/1}">Lansing Stations</a></div>
+				<div class="item"><a th:href="@{/city/2}">Flint Stations</a></div>
+				<div class="item"><a th:href="@{/city/3}">Detroit Stations</a></div>
+			</div>
+			<div class="ui horizontal list">
+				<div class="item"><a th:href="@{/}">All Stations</a></div>
+				<div class="item"><a th:href="@{/country}">Country Stations</a></div>
+				<div class="item"><a th:href="@{/christian}">Christian Stations</a></div>
+			</div>
+			<!--  
+			(1 , 'SmileFM', 88.1,        'Christian/Inspirational')
+			(radio_id, call_name, fm_freq, category)
+			 -->
+			<table class="ui celled table">
+			<tr>
+				<th>Call Name</th> <th>FM Frequency</th> <th>Category</th>
+			</tr>
+			<tr th:each="rad: ${radsets.listings}">
+				<td th:text="${rad.callName}">callName</td>
+				<td th:text="${rad.fmFreq}">fmFreq</td>
+				<td th:text="${rad.category}">category</td>
+			</tr>
+				<!-- 
+				<tr>
+					<th>Call Name</th>
+					<th>FM Freq.</th>
+					<th>Category</th>
+				</tr>
+				<tr>
+					<td>Z92.5 The Castle</td>
+					<td>92.5 FM</td>
+					<td>Variety</td>
+				</tr>
+				-->
+			</table>
+		</div>
+		<div class="four wide column">
+			<div class="logo-space">
+				<p>Logo goes here.</p>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- order}">a</td>
+					<td th:text="${recording.personNickname}">a</td>
+					<td th:text="${recording.newScore}">a</td>
+					<td th:text="${recording.gameId}"> -->
+</body>
+</html>
