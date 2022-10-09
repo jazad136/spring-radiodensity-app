@@ -2,17 +2,20 @@ package net.saddlercoms.radiodensity.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import net.saddlercoms.radiodensity.db.StationRepository;
+import net.saddlercoms.radiodensity.db.dao.RStationDAO;
+import net.saddlercoms.radiodensity.db.dao.ReachDAO;
 import net.saddlercoms.radiodensity.db.model.RStation;
 
-@Service
-public class RDensityRepoService {
+public class RDensityDBService {
+	private final RStationDAO stationDAO;
+	private final ReachDAO reachDAO;
 	private final StationRepository stationRepo;
 
-	public RDensityRepoService(StationRepository stationRepo) {
+	public RDensityDBService(StationRepository stationRepo, RStationDAO rStationDAO, ReachDAO reachDAO) {
 		this.stationRepo = stationRepo;
+		this.stationDAO = rStationDAO;
+		this.reachDAO = reachDAO;
 	}
 	
 	public List<RStation> getAllRadioStations() { 
@@ -26,4 +29,7 @@ public class RDensityRepoService {
 	public List<RStation> getStationsByCategoryContaining(String string) {
 		return stationRepo.findByCategoryLike("%Christian%");
 	}
+	
+	public List<RStation> 
+	
 }
