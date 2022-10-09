@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.saddlercoms.radiodensity.db.model.RStation;
 import net.saddlercoms.radiodensity.response.RStationListingsResponse;
 import net.saddlercoms.radiodensity.response.RStationResponse;
-import net.saddlercoms.radiodensity.service.StationService;
+import net.saddlercoms.radiodensity.service.RDensityRepoService;
 
 @Controller
 @RequestMapping(path="/")
 public class RDensityViewController {
 	
-	private StationService stationService;
+	private RDensityRepoService stationService;
 	
-	public RDensityViewController(StationService stationService) {
+	public RDensityViewController(RDensityRepoService stationService) {
 		this.stationService = stationService;
 	}
 	
