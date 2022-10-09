@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import net.saddlercoms.radiodensity.db.dao.RStationDAO.RStationCollect;
 import net.saddlercoms.radiodensity.db.model.RStation;
 
 public class RStationDAO {
@@ -45,7 +46,7 @@ public class RStationDAO {
 	
 	
 	public List<RStation> getBasic() { 
-		List<RStation> toReturn = jdbcTemplate.query(GET_BASIC_SQL, new RStationRow());
+		List<RStation> toReturn = jdbcTemplate.query(GET_BASIC_SQL, new RStationRow(RStationEnum.values()));
 		return toReturn;
 	}
 	
@@ -62,35 +63,7 @@ public class RStationDAO {
 		public static int tableSize() { return values().length; } 
 		
 	}
-	public static enum RStationEnum {
-		RADIO_ID,
-		CALL_NAME,
-		FM_FREQ,
-		CATEGORY;
-	}
-	public static class RStationRow implements RowMapper<RStation> {
-		
-		@Override
-		public RStation mapRow(ResultSet rs, int rowNum) throws SQLException {
-			RStation toReturn = new RStation();
-			for(int i = 1; i <= RStationCollect.tableSize(); i++) { 
-				if(RStationCollect.values()[i-1].field == RStationEnum.RADIO_ID) { 
-					toReturn.setRadioId(rs.getLong(i));
-				}
-				if(RStationCollect.values()[i-1].field == RStationEnum.CALL_NAME) { 
-					toReturn.setCallName(rs.getString(i));
-				}
-				if(RStationCollect.values()[i-1].field == RStationEnum.FM_FREQ) { 
-					toReturn.setFmFreq(rs.getDouble(i));
-				}
-				if(RStationCollect.values()[i-1].field == RStationEnum.CATEGORY) { 
-					toReturn.setCategory(rs.getString(i));
-				}
-			}
-			return toReturn;
-		}
-		
-	}
+	
 	
 	
 }
