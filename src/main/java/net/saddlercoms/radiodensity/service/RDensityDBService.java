@@ -30,6 +30,4 @@ public class RDensityDBService {
 		return stationRepo.findByCategoryLike("%Christian%");
 	}
 	
-	public List<RStation> 
-	
 }

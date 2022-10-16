@@ -29,7 +29,7 @@ public class RStationDAO {
 //			+ "FROM score s join game g on s.game_id=g.id";
 
 	
-	public final String GET_BASIC_SQL = ""
+	public final String GET_ALL = ""
 			+ "select "
 			+ "r.radio_id, r.call_name, r.fm_freq, r.category "
 			+ "FROM rstation r"
@@ -45,8 +45,8 @@ public class RStationDAO {
 	 */
 	
 	
-	public List<RStation> getBasic() { 
-		List<RStation> toReturn = jdbcTemplate.query(GET_BASIC_SQL, new RStationRow(RStationEnum.values()));
+	public List<RStation> findAll() { 
+		List<RStation> toReturn = jdbcTemplate.query(GET_ALL, new RStationRow(RStationEnum.values()));
 		return toReturn;
 	}
 	
@@ -62,8 +62,5 @@ public class RStationDAO {
 		}
 		public static int tableSize() { return values().length; } 
 		
-	}
-	
-	
-	
+	}	
 }
