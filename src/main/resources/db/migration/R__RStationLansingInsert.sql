@@ -8,8 +8,6 @@
 --	haat int, 
 --	erpkw numeric(4,2)
 --	PRIMARY KEY (radio_id)
-
--- (((LANSING STATIONS)))
 INSERT INTO rstation (radio_id, call_name, fm_freq, category) VALUES 
  (1 , 'SmileFM', 88.1,          'Christian/Inspirational')
 --,(1 , 'SmileFM', 88.5,        'Christian/Inspirational')
@@ -43,39 +41,27 @@ INSERT INTO rstation (radio_id, call_name, fm_freq, category) VALUES
 --,(27, 'MyFLR Family Life Radio',99.9, 'Christian/Inspirational')
 ,(28, 'JoyFM'    , 100.3,       'Christian/Inspirational')
 ,(29, 'WITL'     , 100.7,       'Country')
-,(30, 'WHZZ MIKE 101.7', 101.7, 'Variety'
-,(30, 'WKAR', 102.3,            null)
-,(31, 'WIOG The Hits', 102.5,   null)
-,(32, 'W4', 102.9,              'Country')
-,(33, 'La Poderosa', 103.1,     'Mexican Format')
-,(34, 'KFR', 103.3,             null)
-,(35, 'The FOX', 103.9,         'Classic Hits')
-,(36, 'Wheelz 104.5 (WILZ)', 104.5,    null)
-,(37, 'Unknown 1', 104.7,       null)
-,(38, 'CK105.5', 105.5,         'Classic Hits')
-,(39, 'Star 105.7' , 105.7,     'Pop')
-,(40, 'Q106' , 106.1 ,          'Hard Rock')
-,(41, 'Unknown 2', 106.3,       null)
-,(42, 'Unknown 3', 106.7,       null)
-,(43, 'WZKO'  , 106.9,          null)
-,(44, 'Unknown 4', 107.1,       null)
-,(45, 'THUNDER 107.3', 107.3,  'Country')
-,(46, 'Unknown 5', 107.7,      null)
-,(47, 'Unknown 6', 107.9,      null);
-
---on conflict(radio_id)
---do update set 
---call_name=EXCLUDED.call_name,
---fm_freq=EXCLUDED.fm_freq,
---category=EXCLUDE
-
-INSERT INTO rstation (radio_id, call_name, fm_freq, category, haat, erpkw) VALUES 
- (13, 'WHMI 93.5', 93.5, 'Classic Hits/Rock', 150, 5.20)
-,(17, 'WMMQ 94.7', 94.7, 'Classic Hits', 150, 50.00)
+,(30, 'WHZZ MIKE 101.7', 101.7, 'Variety')
+,(31, 'WKAR', 102.3,            null)
+,(32, 'WIOG The Hits', 102.5,   null)
+,(33, 'W4', 102.9,              'Country')
+,(34, 'La Poderosa', 103.1,     'Mexican Format')
+,(35, 'KFR', 103.3,             null)
+,(36, 'The FOX', 103.9,         'Classic Hits')
+,(37, 'Wheelz 104.5 (WILZ)', 104.5,    null)
+,(38, 'Unknown 2', 104.7,       null)
+,(39, 'CK105.5', 105.5,         'Classic Hits')
+,(40, 'Star 105.7' , 105.7,     'Pop')
+,(41, 'Q106' , 106.1 ,          'Hard Rock')
+,(42, 'Unknown 3', 106.3,       null)
+,(43, 'Unknown 4', 106.7,       null)
+,(44, 'WZKO'  , 106.9,          null)
+,(45, 'Unknown 5', 107.1,       null)
+,(46, 'THUNDER 107.3', 107.3,  'Country')
+,(47, 'Unknown 6', 107.7,      null)
+,(48, 'Unknown 7', 107.9,      null)
 on conflict(radio_id)
 do update set 
 call_name=EXCLUDED.call_name,
 fm_freq=EXCLUDED.fm_freq,
-category=EXCLUDED.category,
-haat=EXCLUDED.haat,
-erpkw=EXCLUDED.erpkw;
+category=EXCLUDED.category;
