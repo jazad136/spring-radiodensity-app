@@ -3,31 +3,31 @@ package net.saddlercoms.radiodensity.db.model;
 
 public class NearbyType {
 	
-	private Long nearby_id;
-	private String nearby_name;
-	private String nearby_city;
+	private Long nearbyId;
+	private String nearbyName;
+	private String nearbyCity;
 	private String st;
-	private int nearby_type;
+	private int nearbyType;
 	
-	public Long getNearby_id() { return nearby_id; }
-	public void setNearby_id(Long nearby_id) { this.nearby_id = nearby_id; }
+	public Long getNearbyId() { return nearbyId; }
+	public void setNearbyId(Long nearbyId) { this.nearbyId = nearbyId; }
 	
-	public String getNearby_name() { return nearby_name; }
-	public void setNearby_name(String nearby_name) { this.nearby_name = nearby_name; }
+	public String getNearbyName() { return nearbyName; }
+	public void setNearbyName(String nearbyName) { this.nearbyName = nearbyName; }
 	
-	public String getNearby_city() { return nearby_city; }
-	public void setNearby_city(String nearby_city) { this.nearby_city = nearby_city; }
+	public String getNearbyCity() { return nearbyCity; }
+	public void setNearbyCity(String nearbyCity) { this.nearbyCity = nearbyCity; }
 	
 	public String getSt() { return st; }
 	public void setSt(String st) { this.st = st; }
 	
-	public int getNearby_type() { return nearby_type; }
-	public void setNearby_type(int nearby_type) { this.nearby_type = nearby_type; }
+	public int getNearbyType() { return nearbyType; }
+	public void setNearbyType(int nearbyType) { this.nearbyType = nearbyType; }
 	
 	@Override
 	public String toString() {
-		return "NearbyType [nearby_id=" + nearby_id + ", nearby_name=" + nearby_name + ", nearby_city=" + nearby_city
-				+ ", st=" + st + ", nearby_type=" + nearby_type + "]";
+		return "NearbyType [nearby_id=" + nearbyId + ", nearby_name=" + nearbyName + ", nearby_city=" + nearbyCity
+				+ ", st=" + st + ", nearby_type=" + nearbyType + "]";
 	}
 	
 }

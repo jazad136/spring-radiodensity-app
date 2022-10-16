@@ -12,7 +12,7 @@ public class RStationRow implements RowMapper<RStation> {
 	
 	RStationEnum[] tableCols;
 	
-	public RStationRow(RStationEnum[] tableCols) { 
+	public RStationRow(RStationEnum... tableCols) { 
 		this.tableCols = tableCols;
 	}
 	
