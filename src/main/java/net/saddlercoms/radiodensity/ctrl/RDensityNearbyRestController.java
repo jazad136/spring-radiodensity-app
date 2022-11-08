@@ -4,56 +4,39 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import net.saddlercoms.radiodensity.db.model.RStation;
+import net.saddlercoms.radiodensity.response.PingResponse;
 import net.saddlercoms.radiodensity.response.RStationListingsResponse;
 import net.saddlercoms.radiodensity.response.RStationResponse;
 import net.saddlercoms.radiodensity.service.RDensityDAOService;
 
-@Controller
-@RequestMapping(path="/cities")
-public class RDensityNearbyViewController {
+@RestController
+@RequestMapping(path="/api/cities")
+public class RDensityNearbyRestController {
 	
 	private RDensityDAOService stationService;
 	
 	
-	public RDensityNearbyViewController(RDensityDAOService stationService) {
+	public RDensityNearbyRestController(RDensityDAOService stationService) {
 		this.stationService = stationService;
 	}
 	
 	@GetMapping(path="/ping")
 	@ResponseStatus(HttpStatus.OK)
-	public String pingPage() { 
-		return "ping.html";
-	}
+	public PingResponse ping() { return new PingResponse(true); }
 	
-	private int tryParseInt(Long num, String argName) { 
-		if(num == null || num > Integer.MAX_VALUE) { 
-			throw new IllegalArgumentException("Numerical Argument " + argName + " is too large to be parsed as int");
-		}
-		return num.intValue();
-	}
-	@GetMapping("/{nearbyNum}")
-	public String getNearbyStations(Model model, @PathVariable Long nearbyNum) {
-		int parseNum = tryParseInt(nearbyNum, "nearbyNum");
-		
-		String nearCity = "";
-		switch(parseNum) { 
-		case 1: nearCity = "Lansing, MI";
-		case 2: nearCity = "Detroit, MI";
-		case 3: nearCity = "Flint, MI";
-		default : 
-			parseNum = 1;
-			nearCity = "Lansing, MI";
-		}
-		List<RStationResponse> allResponses = toResponses(stationService.getStationsByCity(parseNum));
-		RStationListingsResponse response = new RStationListingsResponse("Stations near to " + nearCity, allResponses);
+	@GetMapping("/{nearby_num}")
+	public String getCountryStations(Model model, @PathVariable Long nearbyNum) {
+		List<RStationResponse> allResponses = toResponses(stationService.getStationsByCity(nearbyNum));
+		RStationListingsResponse response = new RStationListingsResponse("Country Stations", allResponses);
 		model.addAttribute("radsets", response);
 		return "all-station.html";
 	}
