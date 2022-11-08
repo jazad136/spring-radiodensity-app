@@ -1,15 +1,13 @@
 package net.saddlercoms.radiodensity.db.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
-import net.saddlercoms.radiodensity.db.dao.RStationDAO.RStationCollect;
 import net.saddlercoms.radiodensity.db.model.RStation;
 
+@Component
 public class RStationDAO {
 	/*
 	 *  @Id @Column(name="radio_id")  private Long radioId;
@@ -32,8 +30,8 @@ public class RStationDAO {
 	public final String GET_ALL = ""
 			+ "select "
 			+ "r.radio_id, r.call_name, r.fm_freq, r.category "
-			+ "FROM rstation r"
-			+ ";";
+			+ "FROM rstation r "
+			+ "ORDER BY r.radio_id;";
 
 	/*
 >radio=# select r.radio_id, r.call_name, r.fm_freq, r.category FROM rstation r;

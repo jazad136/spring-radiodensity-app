@@ -6,10 +6,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import net.saddlercoms.radiodensity.db.model.NearbyType;
-import net.saddlercoms.radiodensity.db.model.RStation;
 
+@Component
 public class NearbyDAO extends DataAccessObject {
 	
 	/* SO FAR BIGGEST QUERY
