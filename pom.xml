@@ -15,8 +15,16 @@
 	<description>Radio Density</description>
 	<properties>
 		<java.version>11</java.version>
+		<tomcat.version>9.0.68</tomcat.version>
 	</properties>
 	<dependencies>
+		<!-- Server -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
 		<!-- Database Runtime -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -38,6 +46,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 		
 		<dependency>
