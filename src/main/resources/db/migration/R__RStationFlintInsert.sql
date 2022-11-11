@@ -42,7 +42,7 @@ INSERT INTO rstation (radio_id, call_name, fm_freq, category) VALUES
 ,(128, 'STACKS 92.1', 92.1, 'Party Hits')
 ,(129, 'Z92.5 The Castle', 92.5, 'Variety')
 ,(130, 'WDZZ 92.7 Flints R&B and Throwbacks', 92.7, 'Hip Hop')
-,(131, 'Cruisin 92.9 Lansings Greatest Hits (WLMI)', 92.9, 'Classic Hits/Rock')
+,(131, 'Cruisin 92.9 Lansings Gtst Hits (WLMI)', 92.9, 'Classic Hits/Rock')
 ,(132, 'New Country 93.1 Detroits New Country', 93.1, 'Country')
 ,(133, 'Z93', 93.3, 'Rock')
 --,(13, 'WHMI 93.5 Livingston Countys Own', 93.5, 'Classic Hits/Rock')
